@@ -1,0 +1,16 @@
+@import '../../styles/variables/_width';
+
+@media(max-width: $responsive-width-small) {
+  .app-header {
+    &__title, &__dropdown {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: unset;
+    }
+
+    &__dropdown {
+      margin-top: 10px;
+    }
+  }
+}

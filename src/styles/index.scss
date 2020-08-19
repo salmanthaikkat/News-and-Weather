@@ -18,3 +18,14 @@ code {
   box-sizing: border-box;
   outline: none;
 }
+
+.app-main__content {
+  padding: 0px 60px;
+  &-row {
+    &--first {
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+    }
+  } 
+}

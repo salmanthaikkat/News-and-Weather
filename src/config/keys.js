@@ -1,0 +1,1 @@
+export const GNEWS_API_TOKEN = 'a0b3201a1836568fc8c5370c02aa0652';
