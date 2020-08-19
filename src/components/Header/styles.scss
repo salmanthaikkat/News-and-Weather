@@ -1,0 +1,24 @@
+@import '../../styles/variables/_colors';
+
+.app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $white;
+  padding: 20px 0;
+
+  &__title, &__lang {
+    width: fit-content;
+  }
+
+  &__title {
+    margin-left: 80px;
+    color: $font-black;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__lang {
+    margin-right: 80px;
+  }
+}
