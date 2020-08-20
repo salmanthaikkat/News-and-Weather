@@ -1,0 +1,16 @@
+@import '../../../../styles/partials/_font';
+@import '../../../../styles/variables/_colors';
+
+.search-bar {
+  display: flex;
+  position: relative;
+
+  &__input {
+    
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+  }
+}
