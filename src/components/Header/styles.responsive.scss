@@ -2,15 +2,15 @@
 
 @media(max-width: $responsive-width-small) {
   .app-header {
-    &__title, &__dropdown {
+    &__title, &__right {
       width: 100%;
       display: flex;
       justify-content: center;
       margin: unset;
     }
 
-    &__dropdown {
-      margin-top: 10px;
+    &__right {
+      margin-top: 20px;
     }
   }
 }

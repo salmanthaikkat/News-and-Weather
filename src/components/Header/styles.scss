@@ -14,7 +14,7 @@
   position: sticky;
   z-index: 2;
 
-  &__title, &__dropdown {
+  &__title, &__right {
     width: fit-content;
     height: 20px;
   }
@@ -27,11 +27,12 @@
     font-family: $font-regular;
   }
 
-  &__dropdown {
+  &__right {
     margin-right: 80px;
     font-family: $font-regular;
     font-size: 14px;
     display: flex;
+    align-items: center;
 
     &-lang {
       margin-right: 20px;
