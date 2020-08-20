@@ -1,1 +1,2 @@
-export const GNEWS_API_TOKEN = 'a0b3201a1836568fc8c5370c02aa0652';
+// export const GNEWS_API_TOKEN = 'a0b3201a1836568fc8c5370c02aa0652';
+export const GNEWS_API_TOKEN = '0df222ce91b2bee8d502897716ee1e13';

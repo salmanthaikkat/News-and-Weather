@@ -1,0 +1,43 @@
+@import './variables/_width';
+
+@media (max-width: $responsive-width-large) {
+  .app-main__content {
+    &-row--first {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .carousel-news-card {
+        width: 100%;
+      }
+
+      .weather-card {
+        margin-left: unset;
+        margin-top: 10px;
+        align-self: center;
+      }
+    } 
+  }
+}
+
+@media (max-width: $responsive-width-medium) {
+  .app-main__content {
+    padding: 0px 80px;
+  }
+}
+
+@media (max-width: $responsive-width-small) {
+  .app-main__content {
+    padding: 0px 30px;
+    &-row--first {
+      .carousel-news-card {
+        width: 100%;
+        height: 500px;
+      }
+
+      .weather-card {
+        width: 100%;
+      }
+    } 
+  }
+}

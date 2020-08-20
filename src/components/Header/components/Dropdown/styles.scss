@@ -1,0 +1,19 @@
+@import '../../../../styles/partials/_font';
+@import '../../../../styles/variables/_colors';
+
+.dropdown {
+  &__toggle {
+    background: white;
+    border: none;
+    color: black;
+
+    &:hover {
+      background-color: $dim-grey;
+      color: black;
+    }
+  }
+
+  &__item {
+    font-family: $font-regular;
+  }
+}

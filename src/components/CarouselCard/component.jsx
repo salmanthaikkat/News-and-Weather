@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import fetchNews from '../../services/news';
 
-export default function CarouselCard() {
-  const [news, setNews] = useState(null);
-
-  useEffect(() => {
-    getNewsData();
-  }, []);
-
-  async function getNewsData() {
-    const { data } = await fetchNews({
-      q: 'example',
-      max: 3
-    });
-    setNews(data.articles);
-  }
+export default function CarouselCard(props) {
+  const {
+    news
+  } = props;
 
   return (
     <div className="carousel-news-card">
@@ -31,7 +20,7 @@ export default function CarouselCard() {
                   className="d-block w-100 carousel-news-card__image"
                   style={{ backgroundImage: `url(${article.image})` }}
                 />
-                <Carousel.Caption>
+                <Carousel.Caption className="carousel-news-card__content">
                   <h3> { article.title } </h3>
                   <p> { article.description } </p>
                 </Carousel.Caption>
