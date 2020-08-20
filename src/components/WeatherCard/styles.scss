@@ -1,4 +1,79 @@
+@import '../../styles/variables/_colors';
+@import '../../styles/partials/_font';
+
 .weather-card {
   width: 400px;
   margin-left: 40px;
+  display: flex;
+  background-color: grey;
+  height: 150px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(105,180,132,0.9864320728291317) 0%,
+            rgba(20,126,91,1) 48%);
+
+  &__left {
+    width: 70%;
+
+    &-content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__temp {
+        font-size: 36px;
+        font-family: $font-secondary;
+        font-weight: bolder;
+        color: white;
+      }
+
+      &__date {
+        margin-left: 10px;
+
+        &-info, &-location {
+          font-family: $font-secondary;
+          font-weight: bold;
+          color: white;
+        }
+      }
+    }
+  }
+
+  &__right {
+    width: 30%;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      &__icon {
+
+        img {
+          width: 40px;
+        }
+      }
+
+      &__status {
+        font-family: $font-secondary;
+        font-weight: bolder;
+        font-size: 16px;
+        color: white;
+      }
+    }
+  }
+
+  &__error {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-secondary;
+    font-weight: bolder;
+    color: white;
+    font-size: 20px;
+  }
 }
