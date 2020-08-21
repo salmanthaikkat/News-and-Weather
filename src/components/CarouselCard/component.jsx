@@ -16,9 +16,10 @@ export default function CarouselCard(props) {
               <Carousel.Item
                 key={index}
               >
-                <div
+                <img
                   className="d-block w-100 carousel-news-card__image"
-                  style={{ backgroundImage: `url(${article.image})` }}
+                  src={article.image}
+                  alt={'slide'}
                 />
                 <Carousel.Caption className="carousel-news-card__content">
                   <h3> { article.title } </h3>

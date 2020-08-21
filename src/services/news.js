@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { GNEWS_API_TOKEN } from '../config/keys';
 
-const GNEWS_URL = `https://gnews.io/api/v3/search?token=${GNEWS_API_TOKEN}&image=required&lang=ko`;
+const API_TOKEN = process.env.REACT_APP_GNEWS_API_KEY;
+const URL = `https://gnews.io/api/v3/search?token=${API_TOKEN}&image=required&lang=ko`;
 
-export default function fetchNews(params) {
-  const result = axios.get(GNEWS_URL, {
+export default async function fetchNews(params) {
+  const { data } = await axios.get(URL, {
     params
   });
 
-  return result;
+  return data;
 }
