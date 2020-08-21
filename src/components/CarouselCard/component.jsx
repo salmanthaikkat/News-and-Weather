@@ -6,6 +6,10 @@ export default function CarouselCard(props) {
     news
   } = props;
 
+  function getImage(imageUrl) {
+    return imageUrl ? imageUrl : require('../../Assets/images/no-image.jpg')
+  }
+
   return (
     <div className="carousel-news-card">
       <Carousel>
@@ -18,7 +22,7 @@ export default function CarouselCard(props) {
               >
                 <img
                   className="d-block w-100 carousel-news-card__image"
-                  src={article.image}
+                  src={ getImage(article.image) }
                   alt={'slide'}
                 />
                 <Carousel.Caption className="carousel-news-card__content">

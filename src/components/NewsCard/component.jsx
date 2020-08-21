@@ -6,6 +6,9 @@ export default function NewsCard(props) {
     handleNewsClick
   } = props;
   
+  function getImage(imageUrl) {
+    return imageUrl ? imageUrl : require('../../Assets/images/no-image.jpg')
+  }
 
   return (
     <div
@@ -14,7 +17,7 @@ export default function NewsCard(props) {
     >
       <div className="news-card__image">
         <img
-          src={data.image}
+          src={ getImage(data.image) }
           alt={'news'}
         />
       </div>
