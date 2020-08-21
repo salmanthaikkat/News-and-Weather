@@ -5,6 +5,7 @@ import WeatherCard from './components/WeatherCard';
 import fetchNews from './services/news';
 import fetchWeather from './services/weather';
 import ShortNewsCard from './components/ShortNewsCard';
+import NewsCard from './components/NewsCard';
 
 function App() {
   const [mainNews, setMainNews] = useState(null);
@@ -14,6 +15,7 @@ function App() {
   const [language, setLanguage] = useState('en');
   const [weather, setWeather] = useState(null);
   const [coordinates, setCoordinates] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getNews();
@@ -29,14 +31,20 @@ function App() {
   }, [coordinates]);
 
   async function getNews(searchText, language) {
+    if (searchText) {
+      setLoading(true);
+    }
     const { articles } = await fetchNews({
       q: (searchText && searchText.length > 0) ? searchText : 'technology',
       max: 10,
       lang: language ? language : 'en'
     });
+
     setMainNews(articles.splice(0, 3));
-    setShortNews(articles.splice(3, 3))
-    setOtherNews(articles.splice(6, 4));
+    setShortNews(articles.splice(0, 3));
+    setOtherNews(articles.splice(0, 4));
+
+    setLoading(false);
   }
 
   async function getLocation() {
@@ -63,11 +71,38 @@ function App() {
     setLanguage(languageKey);
   }
 
+  function renderShortNews() {
+    return (
+      shortNews
+        ? shortNews.map((news, index) => (
+          <ShortNewsCard
+            key={index}
+            news={news.title}
+          />
+        ))
+        : <span>No news available</span>
+    )
+  }
+
+  function renderNews() {
+    return (
+      otherNews
+        ? otherNews.map((news, index) => (
+          <NewsCard
+            key = { index }
+            data = { news }
+          />
+        ))
+        : <span>No news available</span>
+    )
+  }
+
   return (
     <div className="app-main">
       <Header 
         handleSearch = { handleSearch }
         handleLanguageSelect = { handleLanguageSelect }
+        loading = { loading }
       />
       <div className="app-main__content">
         <div className="app-main__content-row--first">
@@ -81,19 +116,13 @@ function App() {
               <div className="short-news">
                 <h2 className="short-news__header">News at Glance</h2>
                 <div className="short-news__content">
-                  {
-                    shortNews
-                    ? shortNews.map((news, index) => (
-                        <ShortNewsCard
-                          key = { index }
-                          news = { news.title }
-                        />
-                    ))
-                    : <span>No news Available</span>
-                  }
+                  { renderShortNews() }
                 </div>
               </div>
             </div>
+        </div>
+        <div className="app-main__content-row">
+          { renderNews() }
         </div>
       </div>
     </div>

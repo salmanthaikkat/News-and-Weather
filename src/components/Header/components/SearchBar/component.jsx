@@ -1,10 +1,11 @@
 import React from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function SearchBar(props) {
-
   const {
     handleSearch,
-    placeholder
+    placeholder,
+    loading
   } = props;
 
   return (
@@ -15,6 +16,15 @@ export default function SearchBar(props) {
           onChange = { handleSearch }
         />
       </div>
+      {
+        loading &&
+        <div className="search-bar__loader">
+          <Spinner
+            animation="border"
+            variant="info"
+          />
+        </div>
+      }
       <div className="search-bar__button">
         <button>
           <img 

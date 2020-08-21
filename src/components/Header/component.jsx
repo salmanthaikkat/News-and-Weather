@@ -6,7 +6,8 @@ import { LANGUAGE_LIST } from '../../constants/languages';
 export default function Header(props) {
   const {
     handleSearch,
-    handleLanguageSelect
+    handleLanguageSelect,
+    loading
   } = props;
 
   return (
@@ -25,6 +26,7 @@ export default function Header(props) {
           <SearchBar 
             handleSearch = { handleSearch }
             placeholder = { 'Search' }
+            loading = { loading }
           />
         </div>
       </div>
