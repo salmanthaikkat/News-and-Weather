@@ -14,12 +14,12 @@ function App() {
   const [coordinates, setCoordinates] = useState(null);
 
   useEffect(() => {
-    //getMainNews();
+    getMainNews();
     getLocation();
   }, []);
 
   useEffect(() => {
-    //getSearchNews(searchText, language);
+    getSearchNews(searchText, language);
   }, [searchText, language]);
 
   useEffect(() => {
