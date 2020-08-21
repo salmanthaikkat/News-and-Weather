@@ -23,6 +23,12 @@ export default function WeatherCard(props) {
 
       case 'Rain':
         return require('../../Assets/images/rain.svg');
+    
+      case 'Clouds':
+        return require('../../Assets/images/clouds.svg');
+
+      default:
+        return require('../../Assets/images/sunny-weather.svg');
     }
   }
 

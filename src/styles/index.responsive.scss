@@ -11,10 +11,19 @@
         width: 100%;
       }
 
-      .weather-card {
+      &__right {
         margin-left: unset;
-        margin-top: 10px;
-        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      
+        .weather-card {
+          margin-left: unset;
+          margin-top: 10px;
+          align-self: center;
+          width: 400px;
+        }
       }
     } 
   }

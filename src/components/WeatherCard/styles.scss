@@ -2,14 +2,14 @@
 @import '../../styles/partials/_font';
 
 .weather-card {
-  width: 400px;
-  margin-left: 40px;
+  width: 100%;
   display: flex;
   background-color: grey;
   height: 150px;
   border-radius: 10px;
   background: linear-gradient(90deg, rgba(105,180,132,0.9864320728291317) 0%,
             rgba(20,126,91,1) 48%);
+  padding: 10px;
 
   &__left {
     width: 70%;
