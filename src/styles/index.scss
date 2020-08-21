@@ -53,6 +53,7 @@ code {
             width: fit-content;
             font-family: $font-secondary;
             align-self: center;
+            font-size: 26px;
           }
 
           &__content {
@@ -65,4 +66,12 @@ code {
       }
     }
   } 
+}
+
+.app-main__loading {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

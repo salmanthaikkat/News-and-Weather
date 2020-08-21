@@ -59,6 +59,7 @@ export default function WeatherCard(props) {
                   <div className="weather-card__right-content__icon">
                     <img
                       src={getStatus(data.weather[0].main)}
+                      alt={'weather-status'}
                     />
                   </div>
                   <div className="weather-card__right-content__status">

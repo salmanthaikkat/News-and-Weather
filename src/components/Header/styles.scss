@@ -25,6 +25,13 @@
     font-size: 18px;
     font-weight: bold;
     font-family: $font-regular;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 50px;
+      margin-right: 10px;
+    }
   }
 
   &__right {
