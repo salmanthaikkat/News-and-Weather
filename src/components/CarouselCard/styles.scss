@@ -1,0 +1,21 @@
+@import '../../styles/variables/_colors';
+@import '../../styles/partials/_font';
+
+.carousel-news-card {
+  width: 55%;
+  height: 550px;
+
+  &__image {
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 550px;
+    opacity: 0.8;
+    filter: contrast(0.5);
+    z-index: 1;
+  }
+
+  &__content {
+    z-index: 2;
+  }
+}

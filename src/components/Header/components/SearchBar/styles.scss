@@ -1,0 +1,44 @@
+@import '../../../../styles/partials/_font';
+@import '../../../../styles/variables/_colors';
+
+.search-bar {
+  display: flex;
+  position: relative;
+
+  &__input {
+    input {
+      border-radius: 5px;
+      padding: 5px 10px;
+      border: 1px solid $dim-grey;
+      font-family: $font-regular;
+      font-weight: bold;
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    right: 35px;
+    top: 5px;
+    .spinner-border {
+      height: 22px;
+      width: 22px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+
+    button {
+      border-radius: 5px;
+      background-color: white;
+      border: 1px solid $dim-grey;
+      padding: 5px;
+    }
+
+    img {
+      height: 20px;
+      color: white;
+    }
+  }
+}

@@ -1,3 +1,6 @@
+@import './partials/_font';
+@import './variables/_colors';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,4 +20,58 @@ code {
   padding: 0;
   box-sizing: border-box;
   outline: none;
+}
+
+.app-main__content {
+  padding: 0px 120px;
+  &-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    flex-wrap: wrap;
+
+    &--first {
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+      justify-content: center;
+
+      &__right {
+        width: 25%;
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+
+        .short-news {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 15px;
+          flex: 1;
+
+          &__header {
+            width: fit-content;
+            font-family: $font-secondary;
+            align-self: center;
+            font-size: 26px;
+          }
+
+          &__content {
+            height: 100%;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  } 
+}
+
+.app-main__loading {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
