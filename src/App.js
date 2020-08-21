@@ -4,44 +4,39 @@ import CarouselCard from './components/CarouselCard';
 import WeatherCard from './components/WeatherCard';
 import fetchNews from './services/news';
 import fetchWeather from './services/weather';
+import ShortNewsCard from './components/ShortNewsCard';
 
 function App() {
   const [mainNews, setMainNews] = useState(null);
+  const [otherNews, setOtherNews] = useState(null);
+  const [shortNews, setShortNews] = useState(null);
   const [searchText, setSearchText] = useState(null);
   const [language, setLanguage] = useState('en');
-  const [otherNews, setOtherNews] = useState(null);
   const [weather, setWeather] = useState(null);
   const [coordinates, setCoordinates] = useState(null);
 
   useEffect(() => {
-    getMainNews();
+    getNews();
     getLocation();
   }, []);
 
   useEffect(() => {
-    getSearchNews(searchText, language);
+    getNews(searchText, language);
   }, [searchText, language]);
 
   useEffect(() => {
     getWeather();
   }, [coordinates]);
 
-  async function getMainNews() {
-    const { articles } = await fetchNews({
-      q: 'example',
-      max: 3
-    });
-    setMainNews(articles);
-  }
-
-  async function getSearchNews(searchText, language) {
+  async function getNews(searchText, language) {
     const { articles } = await fetchNews({
       q: (searchText && searchText.length > 0) ? searchText : 'technology',
       max: 10,
       lang: language ? language : 'en'
     });
     setMainNews(articles.splice(0, 3));
-    setOtherNews(articles);
+    setShortNews(articles.splice(3, 3))
+    setOtherNews(articles.splice(6, 4));
   }
 
   async function getLocation() {
@@ -76,12 +71,29 @@ function App() {
       />
       <div className="app-main__content">
         <div className="app-main__content-row--first">
-          <CarouselCard
-            news = { mainNews }
-          />
-          <WeatherCard
-            data = { weather }
-          />
+            <CarouselCard
+              news = { mainNews }
+            />
+            <div className="app-main__content-row--first__right">
+              <WeatherCard
+                data = { weather }
+              />
+              <div className="short-news">
+                <h2 className="short-news__header">News at Glance</h2>
+                <div className="short-news__content">
+                  {
+                    shortNews
+                    ? shortNews.map((news, index) => (
+                        <ShortNewsCard
+                          key = { index }
+                          news = { news.title }
+                        />
+                    ))
+                    : <span>No news Available</span>
+                  }
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
