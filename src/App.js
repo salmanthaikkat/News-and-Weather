@@ -6,6 +6,8 @@ import fetchNews from './services/news';
 import fetchWeather from './services/weather';
 import ShortNewsCard from './components/ShortNewsCard';
 import NewsCard from './components/NewsCard';
+import Footer from './components/Footer';
+import Spinner from 'react-bootstrap/Spinner';
 
 function App() {
   const [mainNews, setMainNews] = useState(null);
@@ -31,9 +33,7 @@ function App() {
   }, [coordinates]);
 
   async function getNews(searchText, language) {
-    if (searchText) {
-      setLoading(true);
-    }
+    setLoading(true);
     const { articles } = await fetchNews({
       q: (searchText && searchText.length > 0) ? searchText : 'technology',
       max: 10,
@@ -97,6 +97,32 @@ function App() {
     )
   }
 
+  function renderContents() {
+    return (
+      <div className="app-main__content">
+        <div className="app-main__content-row--first">
+          <CarouselCard
+            news = { mainNews }
+          />
+          <div className="app-main__content-row--first__right">
+            <WeatherCard
+              data = { weather }
+            />
+            <div className="short-news">
+              <h2 className="short-news__header">News at Glance</h2>
+              <div className="short-news__content">
+                { renderShortNews() }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="app-main__content-row">
+          { renderNews() }
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="app-main">
       <Header 
@@ -104,27 +130,16 @@ function App() {
         handleLanguageSelect = { handleLanguageSelect }
         loading = { loading }
       />
-      <div className="app-main__content">
-        <div className="app-main__content-row--first">
-            <CarouselCard
-              news = { mainNews }
-            />
-            <div className="app-main__content-row--first__right">
-              <WeatherCard
-                data = { weather }
-              />
-              <div className="short-news">
-                <h2 className="short-news__header">News at Glance</h2>
-                <div className="short-news__content">
-                  { renderShortNews() }
-                </div>
+      {
+        !loading
+          ? renderContents()
+          : (
+              <div className="app-main__loading">
+                <Spinner animation="grow" variant="dark" />
               </div>
-            </div>
-        </div>
-        <div className="app-main__content-row">
-          { renderNews() }
-        </div>
-      </div>
+            )
+      }
+      <Footer />
     </div>
   );
 }

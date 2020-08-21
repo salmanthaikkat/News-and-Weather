@@ -13,6 +13,12 @@ export default function Header(props) {
   return (
     <div className="app-header">
       <div className="app-header__title">
+        <img 
+          src={
+            require('../../Assets/images/logo.svg')
+          }
+          alt={'logo'}
+        />
         News Corner
       </div>
       <div className="app-header__right">

@@ -11,6 +11,7 @@ export default function NewsCard(props) {
       <div className="news-card__image">
         <img
           src={data.image}
+          alt={'news'}
         />
       </div>
       <div className="news-card__desc">
