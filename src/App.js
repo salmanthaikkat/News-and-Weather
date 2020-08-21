@@ -71,13 +71,19 @@ function App() {
     setLanguage(languageKey);
   }
 
+  function handleNewsClick(url) {
+    window.open(url);
+  }
+
   function renderShortNews() {
     return (
       shortNews
         ? shortNews.map((news, index) => (
           <ShortNewsCard
-            key={index}
-            news={news.title}
+            key = { index }
+            news = { news.title }
+            url = { news.url }
+            handleNewsClick = { handleNewsClick }
           />
         ))
         : <span>No news available</span>
@@ -91,6 +97,7 @@ function App() {
           <NewsCard
             key = { index }
             data = { news }
+            handleNewsClick = { handleNewsClick }
           />
         ))
         : <span>No news available</span>

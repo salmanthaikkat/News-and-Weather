@@ -14,3 +14,18 @@
     }
   }
 }
+
+@media(max-width: 622px) {
+  .app-header {
+    &__title, &__right {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: unset;
+    }
+
+    &__right {
+      margin-top: 20px;
+    }
+  }
+}

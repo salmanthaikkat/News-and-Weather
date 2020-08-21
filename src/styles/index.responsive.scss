@@ -13,6 +13,7 @@
 
       &__right {
         margin-left: unset;
+        margin-top: 40px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -38,6 +39,7 @@
 @media (max-width: $responsive-width-small) {
   .app-main__content {
     padding: 0px 30px;
+
     &-row--first {
       .carousel-news-card {
         width: 100%;
@@ -46,6 +48,10 @@
 
       .weather-card {
         width: 100%;
+      }
+
+      &__right {
+        margin-top: 60px;
       }
     } 
   }
