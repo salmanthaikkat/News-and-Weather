@@ -10,6 +10,10 @@ export default function NewsCard(props) {
     return imageUrl ? imageUrl : require('../../Assets/images/no-image.jpg')
   }
 
+  function formatNewsText(text) {
+    return text.split(" ").splice(0, 8).join(" ");
+  }
+
   return (
     <div
       className="news-card"
@@ -22,7 +26,7 @@ export default function NewsCard(props) {
         />
       </div>
       <div className="news-card__desc">
-        { data.title }
+        { formatNewsText(data.title) }
       </div>
     </div>
   );
