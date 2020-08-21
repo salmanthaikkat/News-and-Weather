@@ -15,6 +15,16 @@
     }
   }
 
+  &__loader {
+    position: absolute;
+    right: 35px;
+    top: 5px;
+    .spinner-border {
+      height: 22px;
+      width: 22px;
+    }
+  }
+
   &__button {
     position: absolute;
     right: 0;

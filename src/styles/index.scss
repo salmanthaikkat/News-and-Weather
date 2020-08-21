@@ -25,6 +25,11 @@ code {
 .app-main__content {
   padding: 0px 120px;
   &-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    flex-wrap: wrap;
+
     &--first {
       width: 100%;
       display: flex;

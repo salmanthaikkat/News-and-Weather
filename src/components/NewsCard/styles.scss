@@ -1,0 +1,26 @@
+@import '../../styles/variables/_colors';
+@import '../../styles/partials/_font';
+
+.news-card {
+  height: 300px;
+  width: 250px;
+  margin: 20px;
+  border: 1px solid $dim-grey;
+  border-radius: 10px;
+  // box-shadow: 5px 0px 8px $dim-grey;
+
+  &__image {
+    img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  &__desc {
+    padding: 10px 15px; 
+    font-family: $font-regular;
+    font-weight: bold;
+  }
+}
